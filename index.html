@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 05</title>
+</head>
+<body>
+  <script>
+    let tarefas = []
+
+    function criarTarefa(titulo, descricao){
+      let tarefa = {
+        titulo: titulo,
+        descricao: descricao
+      }
+
+      tarefas.push(tarefa)
+      console.log('Tarefa salva com sucesso!')
+    }
+
+    function remover(indice){
+      if(indice>=0 && indice < tarefas.length){
+        const removida = tarefas.splice(indice,1)
+        alert('Tarefa removida')
+      }else{
+        console.log('Indice inválido')
+      }
+    }
+
+    function atualizar(indice, titulo, descricao){
+      if(indice >= 0 && indice < tarefas.length){
+        tarefas[indice].titulo = titulo
+        tarefas[indice].descricao = descricao
+      }else{
+        console.log('Índice inválido.')
+      }
+    }
+
+    function listar(){
+      console.log('Lista: \n')
+      tarefas.forEach((tarefa, index)=>{
+        console.log(`Indice: ${index} - ${tarefa.titulo} - ${tarefa.descricao}` )
+      })
+    }
+
+    criarTarefa('lavar vasilha', 'lavando vasilha de manaha')
+    criarTarefa('comer pao', 'comer um paozinho quente')
+    listar()
+    atualizar(0, 'lavei ja', 'lavei foi tudo amore')
+    remover(1)
+    listar()
+  </script>
+</body>
+</html>
